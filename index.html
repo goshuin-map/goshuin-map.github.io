@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>みんなの御朱印マップ</title>
+<meta name="description" content="全国の神社で御朱印がもらえるか、直書きか書き置きかを地図で調べられるサイトです。">
+<meta name="theme-color" content="#D3381C">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="vendor/markercluster/MarkerCluster.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-top">
+    <h1 class="hdr-title"><span aria-hidden="true">⛩</span> <span data-i18n="site.name">みんなの御朱印マップ</span></h1>
+    <button id="langBtn" class="hdr-btn" type="button">EN</button>
+    <button id="menuBtn" class="hdr-btn" type="button" aria-haspopup="true" aria-expanded="false" data-i18n-attr="aria-label:menu.label">☰</button>
+  </div>
+  <button id="regionBtn" class="region-chip" type="button"></button>
+  <nav id="menu" class="menu" hidden>
+    <a href="about.html" data-i18n="menu.about"></a>
+    <a href="terms.html" data-i18n="menu.terms"></a>
+    <a href="privacy.html" data-i18n="menu.privacy"></a>
+    <a id="menuContact" href="about.html#contact" data-i18n="menu.contact"></a>
+  </nav>
+</header>
+
+<div class="app" id="app">
+  <main class="mapwrap">
+    <div id="map"></div>
+    <button id="locateBtn" class="fab" type="button" data-i18n-attr="aria-label:locate.label">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="3.5" fill="currentColor"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div id="toast" class="toast" role="status" hidden></div>
+  </main>
+
+  <div class="bar">
+    <input id="q" class="search" type="search" autocomplete="off" enterkeyhint="search" data-i18n-attr="placeholder:search.placeholder,aria-label:search.placeholder">
+    <button id="filterBtn" class="btn btn-line" type="button" data-i18n="filter.button"></button>
+  </div>
+
+  <div class="side-hint" data-i18n="side.hint"></div>
+
+  <ul id="results" class="results panel" hidden></ul>
+
+  <section id="newPin" class="newpin panel" hidden>
+    <p data-i18n="newpin.text"></p>
+    <div class="row">
+      <button id="newPinGo" class="btn btn-accent" type="button" data-i18n="newpin.go"></button>
+      <button id="newPinCancel" class="btn btn-line" type="button" data-i18n="cancel"></button>
+    </div>
+  </section>
+
+  <section id="filterPanel" class="filter panel" hidden>
+    <div class="panel-head">
+      <h2 data-i18n="filter.title"></h2>
+      <button class="x" type="button" data-close="filterPanel" data-i18n-attr="aria-label:close">✕</button>
+    </div>
+    <div id="filterList" class="filter-list"></div>
+  </section>
+
+  <section id="sheet" class="sheet panel" hidden></section>
+</div>
+
+<div id="regionModal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="regionTitle">
+    <div class="panel-head">
+      <h2 id="regionTitle" data-i18n="region.title"></h2>
+      <button id="regionClose" class="x" type="button" data-i18n-attr="aria-label:close">✕</button>
+    </div>
+    <button id="regionLocate" class="btn btn-accent btn-wide" type="button" data-i18n="region.locate"></button>
+    <div id="regionTabs" class="region-tabs"></div>
+    <div id="prefList" class="pref-list"></div>
+    <button id="regionOk" class="btn btn-accent btn-wide" type="button" disabled></button>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" hidden><img alt=""></div>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="vendor/markercluster/leaflet.markercluster.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

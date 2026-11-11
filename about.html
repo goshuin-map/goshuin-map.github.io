@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>このサイトについて | みんなの御朱印マップ</title>
+<meta name="theme-color" content="#D3381C">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="hdr">
+  <div class="hdr-top" style="padding-bottom:8px">
+    <h1 class="hdr-title"><a href="./"><span aria-hidden="true">⛩</span> <span data-i18n="site.name">みんなの御朱印マップ</span></a></h1>
+    <button id="langBtn" class="hdr-btn" type="button">EN</button>
+  </div>
+</header>
+<div class="page-body">
+<main class="page">
+  <a class="back" href="./" data-i18n="menu.map">地図に戻る</a>
+
+  <div data-lang="ja">
+    <h2>このサイトについて</h2>
+    <p>「みんなの御朱印マップ」は、全国の神社で<strong>御朱印がもらえるか</strong>、<strong>直書きか書き置きか</strong>を地図で調べられる、個人運営のサイトです。情報はみなさんの投稿をもとに、運営者が確認してから掲載しています。</p>
+    <p>お寺の御朱印（御納経）は性質が異なるため、このサイトでは神社だけを扱っています。</p>
+
+    <h3>ピンの見方</h3>
+    <div class="legend">
+      <span data-pin="direct"></span><span><strong>直書きあり</strong>（書き置きもある場合を含みます）</span>
+      <span data-pin="paper"></span><span><strong>書き置きのみ</strong></span>
+      <span data-pin="none"></span><span><strong>御朱印なし</strong></span>
+      <span data-pin="unknown"></span><span><strong>情報なし</strong>（まだ投稿がありません）</span>
+      <span data-pin="direct,1"></span><span>左上の<strong>☆</strong>：限定御朱印・季節の御朱印の情報があります</span>
+      <span data-pin="direct,0,1"></span><span>右下の<strong>✓</strong>：あなたが「行った」と記録した神社です</span>
+    </div>
+    <p>御朱印を別の神社（本務社など）で授与している場合も、その神社の御朱印がもらえるなら「直書きあり」または「書き置きのみ」としています。授与場所は詳細に表示します。</p>
+    <p>名前のない小さな神社（祠など）は、地図を拡大したときに小さな点で表示されます。</p>
+
+    <h3>使い方</h3>
+    <ol>
+      <li>地域（都道府県）を選びます。「📍 現在地から探す」も使えます。</li>
+      <li>ピンを押すと、神社名と御朱印の状態が表示されます。もう一度押すと詳細が開きます。</li>
+      <li>画面下の検索欄で神社名を検索でき、「絞り込み」で表示するピンを選べます。</li>
+      <li>参拝した神社は「行った」ボタンで記録できます。記録はお使いの端末のブラウザにだけ保存され、ブラウザのデータを消すと記録も消えます。</li>
+    </ol>
+
+    <h3>情報の投稿</h3>
+    <p>神社の詳細にある「この神社の情報を投稿する」から、Googleフォームで投稿できます（写真をアップロードするため、Googleアカウントへのログインが必要です）。地図にない神社は、地図を十分に拡大してからその場所をタップすると登録できます。</p>
+    <p>投稿は運営者が確認してから掲載します。掲載の可否や結果のお知らせはしていません。投稿の前に<a href="terms.html">利用規約</a>をお読みください。</p>
+
+    <h3>ご注意</h3>
+    <p>掲載している情報は投稿にもとづくもので、正確さや最新であることを保証するものではありません。御朱印の授与状況、初穂料、受付時間などは変わることがあります。参拝の前に、各神社の公式情報をご確認ください。</p>
+
+    <h3>ライセンスと出典</h3>
+    <table>
+      <tr><th>神社の位置と名前</th><td>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors（<a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>）</td></tr>
+      <tr><th>地図</th><td>© OpenStreetMap contributors</td></tr>
+      <tr><th>投稿された文字情報</th><td><a href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank" rel="noopener">CC BY 4.0</a>（出典の表示例：「みんなの御朱印マップ」）</td></tr>
+      <tr><th>投稿された写真</th><td>著作権は投稿者にあります。本サイトへの掲載だけが許可されています。転載はできません。</td></tr>
+      <tr><th>サイトのプログラム</th><td>MIT License</td></tr>
+    </table>
+    <p>地図の表示には <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> と Leaflet.markercluster を使っています。</p>
+
+    <h3 id="contact">お問い合わせ</h3>
+    <p>お問い合わせ、投稿の削除依頼、神社からの掲載停止のご依頼は、<a data-contact href="#">お問い合わせフォーム</a>からお願いします。</p>
+    <p><a href="terms.html">利用規約</a> ・ <a href="privacy.html">プライバシーポリシー</a></p>
+  </div>
+
+  <div data-lang="en" hidden>
+    <h2>About</h2>
+    <p>Goshuin Map is a personally run website where you can check on a map whether a Shinto shrine in Japan offers <strong>goshuin</strong> (shrine seal stamps), and whether it is <strong>hand-written</strong> in your book or a <strong>pre-written sheet</strong>. Information is posted by visitors and published after review.</p>
+    <p>This site covers Shinto shrines only. Buddhist temples are not included.</p>
+
+    <h3>Pins</h3>
+    <div class="legend">
+      <span data-pin="direct"></span><span><strong>Hand-written</strong> (pre-written sheets may also be available)</span>
+      <span data-pin="paper"></span><span><strong>Pre-written sheet only</strong></span>
+      <span data-pin="none"></span><span><strong>No goshuin</strong></span>
+      <span data-pin="unknown"></span><span><strong>No info yet</strong></span>
+      <span data-pin="direct,1"></span><span><strong>☆</strong> (top left): limited or seasonal goshuin information</span>
+      <span data-pin="direct,0,1"></span><span><strong>✓</strong> (bottom right): a shrine you marked as visited</span>
+    </div>
+    <p>If a shrine's goshuin is given at another shrine, it is still shown as available, and the place is shown in the details.</p>
+    <p>Small unnamed shrines appear as small dots when you zoom in.</p>
+
+    <h3>How to use</h3>
+    <ol>
+      <li>Choose an area (prefectures), or tap "Use my location".</li>
+      <li>Tap a pin to see the shrine name and goshuin status. Tap again for details.</li>
+      <li>Use the search box and the Filter button at the bottom.</li>
+      <li>Tap "Visited" to keep your own record. It is stored only in your browser and is lost if you clear browser data.</li>
+    </ol>
+
+    <h3>Posting information</h3>
+    <p>Use "Post information for this shrine" in the shrine details to open a Google Form (a Google account is required to upload photos). To add a shrine that is not on the map, zoom in closely and tap its location.</p>
+    <p>Posts are reviewed before publication. We do not notify you of the result. Please read the <a href="terms.html">Terms of Use</a> before posting.</p>
+
+    <h3>Disclaimer</h3>
+    <p>Information is based on user posts and is not guaranteed to be accurate or up to date. Please check each shrine's official information before visiting.</p>
+
+    <h3>Licenses and credits</h3>
+    <table>
+      <tr><th>Shrine locations and names</th><td>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors (<a href="https://opendatacommons.org/licenses/odbl/" target="_blank" rel="noopener">ODbL</a>)</td></tr>
+      <tr><th>Map</th><td>© OpenStreetMap contributors</td></tr>
+      <tr><th>Posted text</th><td><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> (credit: "Minna no Goshuin Map")</td></tr>
+      <tr><th>Posted photos</th><td>Copyright remains with each contributor. Published on this site only; do not reuse.</td></tr>
+      <tr><th>Site code</th><td>MIT License</td></tr>
+    </table>
+    <p>The map uses <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> and Leaflet.markercluster.</p>
+
+    <h3>Contact</h3>
+    <p>For inquiries, removal requests, or requests from shrines to stop listing, please use the <a data-contact href="#">contact form</a>.</p>
+    <p><a href="terms.html">Terms of Use</a> · <a href="privacy.html">Privacy Policy</a></p>
+  </div>
+</main>
+</div>
+<script type="module" src="js/page.js"></script>
+</body>
+</html>

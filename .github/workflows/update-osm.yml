@@ -1,0 +1,50 @@
+name: OSMデータの更新
+
+on:
+  schedule:
+    - cron: "0 18 1 * *" # 毎月2日 午前3時（日本時間）
+  workflow_dispatch:
+    inputs:
+      only:
+        description: "都道府県コード（カンマ区切り。空なら全国）"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-write
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: OSMから取得
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+        run: |
+          if [ -n "$ONLY" ]; then
+            python scripts/fetch_osm.py --only "$ONLY"
+          else
+            python scripts/fetch_osm.py
+          fi
+      - name: コミット（一部が失敗しても、取得できた分は反映する）
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/shrines
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "OSMデータを更新"
+            git pull --rebase
+            git push
+          fi

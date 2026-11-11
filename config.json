@@ -1,0 +1,45 @@
+{
+  "site": {
+    "name": "みんなの御朱印マップ",
+    "url": "https://goshuin-map.github.io/"
+  },
+  "repo": "goshuin-map/goshuin-map.github.io",
+  "osm": {
+    "religion": "shinto",
+    "sleepSeconds": 15,
+    "endpoints": [
+      "https://overpass-api.de/api/interpreter",
+      "https://overpass.private.coffee/api/interpreter"
+    ]
+  },
+  "map": {
+    "tileUrl": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "attribution": "© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a> contributors",
+    "unnamedMinZoom": 15,
+    "newPinMinZoom": 16,
+    "maxPrefectures": 8
+  },
+  "form": {
+    "post": {
+      "url": "",
+      "entries": {
+        "kind": "",
+        "id": "",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "pref": ""
+      },
+      "kindValues": {
+        "new": "新しい情報",
+        "fix": "修正の報告"
+      }
+    },
+    "contact": {
+      "url": ""
+    }
+  },
+  "analytics": {
+    "goatcounter": ""
+  }
+}
