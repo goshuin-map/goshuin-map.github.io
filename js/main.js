@@ -292,7 +292,7 @@ async function start() {
     $("menuContact").rel = "noopener";
   }
 
-  mapApi = createMap(config.map, { select: (s) => select(s, false), mapClick: onMapClick });
+  mapApi = createMap(config.map, { select: (s) => select(s, false), mapClick: onMapClick, lang });
   picker = createRegionPicker({
     max: config.map.maxPrefectures,
     toast,
@@ -309,6 +309,7 @@ async function start() {
   $("locateBtn").addEventListener("click", () => locate(false));
   $("langBtn").addEventListener("click", async () => {
     await setLang(lang === "ja" ? "en" : "ja");
+    mapApi.setLang(lang);
     updateChip();
     renderFilters();
     renderSelected();

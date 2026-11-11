@@ -2,6 +2,7 @@
 /* global L */
 import { pinIcon } from "./pins.js";
 import { statusOf } from "./data.js";
+import { addBasemap } from "./basemap.js";
 
 export function createMap(cfg, handlers) {
   const map = L.map("map", {
@@ -14,7 +15,9 @@ export function createMap(cfg, handlers) {
 
   // 出典は常に表示する（F-02）。下から出るパネルに隠れないよう右上に置く
   L.control.attribution({ prefix: false, position: "topright" }).addTo(map);
-  L.tileLayer(cfg.tileUrl, { attribution: cfg.attribution, maxZoom: 19 }).addTo(map);
+  // 背景地図（設定は config.json の map.tiles。basemap.js を参照）
+  let basemap = { setLang() {} };
+  addBasemap(map, cfg, handlers.lang).then((b) => (basemap = b));
   if (window.matchMedia("(min-width: 768px)").matches) L.control.zoom({ position: "bottomright" }).addTo(map);
 
   const cluster = L.markerClusterGroup({
@@ -72,6 +75,10 @@ export function createMap(cfg, handlers) {
 
   return {
     map,
+
+    setLang(lang) {
+      basemap.setLang(lang);
+    },
 
     setShrines(pins, unnamed, visitedMap) {
       visited = visitedMap;

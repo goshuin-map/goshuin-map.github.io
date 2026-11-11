@@ -51,4 +51,6 @@ python -m http.server 8765
 | 投稿された文字情報（`data/goshuin.json`） | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja) |
 | 投稿された写真（`data/photos/`） | 著作権は各投稿者にあります。本サイトへの掲載のみ許可されています。**転載・再利用はできません** |
 
-同梱しているライブラリ：Leaflet（BSD 2-Clause）、Leaflet.markercluster（MIT）。
+同梱しているライブラリ：Leaflet（BSD 2-Clause）、Leaflet.markercluster（MIT）、MapLibre GL JS（BSD 3-Clause）、maplibre-gl-leaflet（ISC）。
+
+背景地図は [OpenFreeMap](https://openfreemap.org/) のベクトル地図（Positron）を、店のアイコンや道路番号を消して使っている（`js/basemap.js`）。切り替えは `config.json` の `map.tiles`。
